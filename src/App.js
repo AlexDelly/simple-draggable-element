@@ -1,12 +1,18 @@
-import Draggable from './Draggable'
+import Draggable from "./Draggable";
+import logo from "./assets/logo.png";
+import "./style.css";
 
 function App() {
-
-  const element = <p>Hello world</p>
-
-  return (
-    <Draggable childElement={element}/>
+  const element = (
+    <div
+      className="image"
+      style={{
+        backgroundImage: "url(" + logo + ")",
+      }}
+    ></div>
   );
+
+  return <Draggable childElement={element} />;
 }
 
 export default App;

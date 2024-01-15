@@ -1,0 +1,9 @@
+.image {
+  width: 230px;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 230px 200px;
+  user-select: none;
+  pointer-events: none;
+}

@@ -9,6 +9,17 @@ const Draggable = ({ childElement, initialPosition }) => {
   const [clickedMousePosition, setClickedMousePosition] = useState({});
   const [mousePosition, setMousePosition] = useState({});
 
+  const handleFocus = () => {
+    setClickedMousePosition({
+      x: mousePosition.x,
+      y: mousePosition.y,
+    });
+
+    if (!isAttached) {
+      setIsAttached(true);
+    }
+  };
+
   const mouseMoveHandler = (event) => {
     setMousePosition({
       x: event.clientX,
@@ -21,17 +32,6 @@ const Draggable = ({ childElement, initialPosition }) => {
       event.clientY >= window.innerHeight
     ) {
       setIsAttached(false);
-    }
-  };
-
-  const handleFocus = () => {
-    setClickedMousePosition({
-      x: mousePosition.x,
-      y: mousePosition.y,
-    });
-
-    if (!isAttached) {
-      setIsAttached(true);
     }
   };
 

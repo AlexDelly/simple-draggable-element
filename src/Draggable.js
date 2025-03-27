@@ -9,17 +9,6 @@ const Draggable = ({ childElement, initialPosition }) => {
   const [clickedMousePosition, setClickedMousePosition] = useState({});
   const [mousePosition, setMousePosition] = useState({});
 
-  useEffect(() => {
-    if (initialPosition) {
-      setElementPosition(initialPosition);
-    }
-
-    window.addEventListener("mousemove", mouseMoveHandler);
-    return () => {
-      window.removeEventListener("mousemove", mouseMoveHandler);
-    };
-  }, [initialPosition]);
-
   const mouseMoveHandler = (event) => {
     setMousePosition({
       x: event.clientX,
@@ -53,6 +42,17 @@ const Draggable = ({ childElement, initialPosition }) => {
       y: mousePosition.y - (clickedMousePosition.y - elementPosition.y),
     });
   };
+
+  useEffect(() => {
+    if (initialPosition) {
+      setElementPosition(initialPosition);
+    }
+
+    window.addEventListener("mousemove", mouseMoveHandler);
+    return () => {
+      window.removeEventListener("mousemove", mouseMoveHandler);
+    };
+  }, [initialPosition]);
 
   return (
     <div
